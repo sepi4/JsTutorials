@@ -10,12 +10,47 @@ var grid;
 var cols;
 var rows;
 var w = 20;
-var totalBees = 2;
-var status = "Game not over";
 var statusElement = document.getElementById("status");
-statusElement.textContent = status;
+statusElement.textContent = "Game is not over";
+
+
+var totalBees = 10;
+var beesCountElement = document.getElementById("bees-count");
+beesCountElement.value = totalBees;
+
+beesCountElement.addEventListener("keyup", function() {
+  if (beesCountElement.value.length > 0 && parseInt(beesCountElement.value)) {
+    totalBees = parseInt(beesCountElement.value);
+    newGame();
+  }
+
+});
+
+var sizeGrid = 10;
+var sizeGridElement = document.getElementById("size-grid");
+sizeGridElement.value = sizeGrid;
+
+sizeGridElement.addEventListener("keyup", function() {
+  if (sizeGridElement.value.length > 0) {
+    sizeGrid = parseInt(sizeGridElement.value);
+    newGame();
+  }
+});
+
+var newGameBtn = document.getElementById("new-game-btn");
+
+newGameBtn.addEventListener("click", function() {
+  newGame();
+});
+
+
 function setup() {
-  createCanvas(201, 201);
+  newGame();
+}
+
+function newGame() {
+  statusElement.textContent = "Game is not over";
+  createCanvas(20 * sizeGrid + 1, 20 * sizeGrid +1);
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
