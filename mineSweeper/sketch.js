@@ -9,7 +9,7 @@ function make2DArray(cols, rows) {
 var grid;
 var cols;
 var rows;
-var w = 20;
+var w = 30;
 var statusElement = document.getElementById("status");
 statusElement.textContent = "Game is not over";
 
@@ -50,7 +50,7 @@ function setup() {
 
 function newGame() {
   statusElement.textContent = "Game is not over";
-  createCanvas(20 * sizeGrid + 1, 20 * sizeGrid +1);
+  createCanvas(w * sizeGrid + 1, w * sizeGrid +1);
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
