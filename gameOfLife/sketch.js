@@ -33,7 +33,8 @@ function setup() {
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      grid[i][j] = new Cell(i, j, floor(random(2)));
+      // grid[i][j] = new Cell(i, j, floor(random(2)));
+      grid[i][j] = floor(random(2));
     }
   }
   console.table(grid);
@@ -59,7 +60,7 @@ function draw() {
     for (let j = 0; j < rows; j++) {
       let x = i * resolution;
       let y = j * resolution;
-      if (grid[i][j].value == 1) {
+      if (grid[i][j] === 1) {
         fill(255);
         stroke(0);
         rect(x, y, resolution-1, resolution-1);
@@ -79,9 +80,9 @@ function draw() {
       let neighbors = countNeighbors(grid, i, j);
 
       if (state === 0 && neighbors === 3) {
-        next[i][j].value = 1;
+        next[i][j] = 1;
       } else if (state === 1 && neighbors < 2 || neighbors > 3) {
-        next[i][j].value = 0;
+        next[i][j] = 0;
       } else {
         next[i][j] = state;
       }
