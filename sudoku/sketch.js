@@ -234,7 +234,6 @@ function draw() {
   drawSudoku();
 }
 
-
 function testSudoku() {
   grid[0][0] = new Cell(undefined);
   grid[0][1] = new Cell(undefined);
