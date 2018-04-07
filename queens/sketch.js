@@ -45,6 +45,7 @@ function main() {
 
 function calculate() {
   answers = [];
+  timeOfCalculation = 0;
   if (n > 3) {
     grid = make2DArray(n, n);
     let t1 = performance.now();
@@ -59,26 +60,26 @@ function calculate() {
 
 function printAnswers() {
   let str = "";
-  str = str + "Kuningattareja: " + n + "\n";
-  str = str + "Ratkaisuja: " + answers.length + "\n";
-  str = str + "Laskenta-aika: " + timeOfCalculation + " ms\n";
+  str += "Kuningattareja: " + n + "\n";
+  str += "Ratkaisuja: " + answers.length + "\n";
+  str += "Laskenta-aika: " + Math.round(timeOfCalculation) + " ms\n";
 
   for (let i = 0; i < answers.length; i++) {
-    str = str +"\n";
-    str = str  + (i + 1) + "." + " ratkaisu: \n";
+    str +="\n";
+    str += (i + 1) + "." + " ratkaisu: \n";
     for (let j = 0; j < answers[i].length; j++) {
       for (let a = 0; a < answers[i].length; a++) {
         if (a === answers[i][j]) {
-          str = str + "Q ";
+          str += "Q ";
         }
         else {
-          str = str + ". ";
+          str += ". ";
         }
       }
-      str = str + "\n";
+      str += "\n";
     }
   }
-  // console.log(str)
+
   resultDiv.innerText = str;
 }
 
