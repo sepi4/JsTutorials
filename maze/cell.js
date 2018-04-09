@@ -28,7 +28,8 @@ class Cell {
   show() {
     let x = this.i * w;
     let y = this.j * w;
-    stroke(255);
+    stroke(255, 0, 0);
+    strokeWeight(5);
 
     if (this.walls[0]) { // top
       line(x, y, x + w, y);
