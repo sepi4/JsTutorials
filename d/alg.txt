@@ -1,0 +1,4 @@
+1. all nodes un
+2. all tentative (alustava) dist = 0
+3. Calc all neighbors tentative dist through current node.
+    
